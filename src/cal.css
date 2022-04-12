@@ -1,0 +1,912 @@
+@import url(https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap);
+
+
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Viaoda+Libre&display=swap);
+
+body{
+  background: rgb(83, 99, 103);
+}
+
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+  border: 1px solid #a0a096;
+  line-height: 1.125em;
+  color: black;
+  font-family: 'Montserrat', cursive;
+}
+
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar__navigation {
+  height: 44px;
+  margin-bottom: .3em;
+}
+
+.react-calendar__navigation__label{
+  background: rgb(105, 149, 173)!important; 
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: red
+}
+
+.react-calendar__navigation__arrow {
+  background: #97b4d3!important;
+}
+
+/* .react-calendar__navigation button:enabled:hover, */
+.react-calendar__navigation button:enabled:focus {
+  background-color: #7ea1e2 !important;
+  color: rgb(182, 234, 235);
+}
+.react-calendar__navigation button[disabled] {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 0.85em;
+  color: rgb(37, 47, 56);
+  margin-bottom: .7em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  text-align: center;
+  padding: 0.75em 0.5em;
+  background: none;
+  /* font-family: 'Viaoda Libre', cursive; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: lighter; */
+}
+
+.app {
+  width: 412px;
+  height: 600px;
+  display: flex;
+  position: relative;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* border: dotted rgb(236, 26, 71) 1px; */
+  /* background: rgb(239, 242, 244); */
+  
+}
+
+.app img{
+  position: absolute;
+  z-index: -1;
+  opacity: 1;
+  top:0;
+  left:0;
+  width: 100%;
+  /* transform: scale(1.05); */
+
+}
+
+header{
+  display: flex;
+  align-items: center;
+  background: rgb(239, 242, 244);
+  width: 412px;
+}
+
+.calDiv{
+  /* border: solid orange; */
+  width: 90%;
+  /* overflow: hidden; */
+  padding: 0 30px 20px rgb(37, 57, 40);
+}
+
+
+.calItem{
+  border:solid rgb(40, 134, 59) 1px;
+
+  display:flex;
+  justify-content: center;
+}
+
+
+.popoutitem{
+  height: 0%;
+  border: rgb(18, 211, 153) solid;
+  padding: 0px;
+}
+
+.popout {
+  background: rgb(219, 226, 231);
+  position: absolute;
+  z-index: 22;
+  width: 55px!important;
+  font-size: 1.8em;
+  /* border-radius: 1px; */
+  color : black;
+  padding: 3px 0;
+  border:2px outset rgb(242, 243, 247);
+  animation-name: popout;
+  animation-duration: .15s;
+  animation-fill-mode: forwards; 
+  transform: scale(0);
+  box-shadow: 3px 2px 4px rgb(117, 127, 133);
+  /* inset 0 -1px 1px rgba(0,0,0,0.5),  */
+  /* inset 0 -6px 1px rgba(167, 45, 45, 0.3); */
+}
+
+
+
+
+.wincalendar{
+  /* border: solid rgb(191, 0, 191); */
+  width: 412px;
+  height: 100px;
+}
+
+.close{
+  font-size: .4em;
+  display:flex;
+  justify-content: flex-end;
+  border: #00ffc8 solid;
+  
+}
+
+.addBtnItem{
+  /* color: rgb(43, 43, 56) !important; */
+  position: absolute;
+  top: -9%;
+  left: 77%;
+  font-size: .6em;
+  display:flex;
+  align-items: flex-start;
+  /* border: solid green 1px; */
+  display: flex;
+}
+
+.btn1{
+  background:none !important;
+  color: rgb(1, 156, 1);
+  transform: scale(1);
+  transition-duration: .6s;
+}
+
+.btn1:active{
+  transform: scale(3)
+}
+
+.monthItem{
+  /* height: 10px; */
+  font-size: .5em;
+}
+
+
+.dateNmbrItem{ 
+  /* border: red dotted 1px; */
+  /* height: 60px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.dateTimeBox {
+  
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  /* transform: scale(2); */
+  z-index: 11;
+  /* border: rgb(66, 242, 80) dotted; */
+}
+
+.dateTimeBox table{
+  font-size: .6em !important;
+  text-shadow: 2px 2px 3px rgb(119, 122, 124);
+}
+
+.mdyItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* border: rgb(45, 247, 27) dotted; */
+}
+
+
+.clockline{
+  position: relative;
+  top: 3px;
+  background: rgb(255, 255, 255);
+  /* border: dotted red; */
+  z-index: 0;
+  height: 3px;
+}
+
+
+
+
+.apptAlert{
+  border: rgb(223, 206, 23) solid 1px;
+}
+
+.apptTxtItem{
+/* border: rgb(54, 228, 38) dotted; */
+font-family: 'Montserrat';
+/* padding-left: 7px; */
+display: flex;
+justify-content: flex-end;
+}
+
+.NewAptForm{
+ 
+}
+
+.newAptTxtItem{
+  /* border: red dotted; */
+  padding-top: 28px;
+  padding-left: 5px;
+}
+
+.newAptTxtItem textarea{
+
+  overflow: scroll;
+  
+
+}
+
+.AafTxt{
+  position: relative;
+  left: -15px;
+  width: 105%;
+  
+  /* border-style: solid none none;
+  border-color: rgb(172, 221, 172);
+  border-width: 1px; */
+}
+
+.time-text{
+  /* border: rgb(33, 214, 78) dotted 1px; */
+  display: flex;
+  
+  position: relative;
+  left: 0px;
+  width: 105%;
+  /* font-size: 2em; */
+}
+
+
+hr{
+    top: 30px;
+    color: #000000;
+    background-color: #9db6a2;
+    width: 20px;
+    
+/*    
+    height: .5;
+    border-color : #000000; */
+
+}
+
+.apptTxt{
+  position: relative;
+  /* top: 18px; */
+ 
+  width: 106%;
+  /* background-color: rgb(227, 232, 233); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: rgb(25, 236, 17) solid; */
+  padding: 0px !important;
+}
+
+
+
+.apptunder{
+  width: 0px;
+  transition: .5s;
+  border-bottom: 1px solid  rgb(121, 170, 121);
+}
+
+.apptunderspread{
+  width: 100%;
+}
+
+.module-border-wrap {
+  
+  background: linear-gradient(0deg, 
+  rgb(151, 179, 169) 70%,
+  rgb(197, 211, 204) 90%,
+  rgb(255, 255, 255) 100%); 
+ 
+  display: flex;
+  padding: 1px;
+  border-radius: 3px;
+  margin-top: -8px;
+
+  animation: slidein .7s forwards;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+@keyframes slidein {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+
+
+.module-button{
+  font-family: 'Montserrat' !important;
+  font-size: 1em;
+  flex: 1;
+  background: rgb(245, 248, 248) !important;
+  text-align: center;
+  line-height: .9em;
+  padding: 5px;
+  color:rgb(44, 85, 88);
+  margin: 0px !important;
+  border-radius: 3px !important;
+  -webkit-tap-highlight-color: transparent;
+  height: 100%;
+  animation: glow;
+}
+
+@keyframes glow {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+
+.module-button:active{
+  color: rgb(15, 41, 18) !important;
+}
+
+.module-button:focus{
+  background: rgb(185, 216, 187) !important;
+  background: rgb(206, 216, 216) !important;
+  color:rgb(103, 169, 107);
+  box-shadow: none;
+}
+
+.savedayevent{
+  border-style: none solid solid;
+  border-color: rgb(130, 177, 157);
+  border-width: 1px;
+  line-height: .9em;
+  padding: 2px;
+  border-radius: 6px;
+}
+
+/*   
+.appttxtarea:focus{
+  padding: 0px 0px 21px;
+  height: auto; 
+} */
+
+.appttxtarea{
+  
+  margin: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: 20px;
+  width: 99%;
+  padding: 2px 6px;
+  transition: 1s;
+  resize: none;
+  line-height: 1.2em;
+  /* height: auto; */
+
+
+  
+}
+
+/* .appttxtarea:active{
+  height: auto;
+  transition: 1s;
+} */
+
+.appttxtarea{
+  height:30px
+}
+
+.appttxtarea:focus{
+  height: var(--focusheight);
+  transition: 1s;
+}
+
+
+
+
+
+
+.apptpopout{
+  position: absolute;
+  background: white;
+  bottom: 105px;
+  left: 30px;
+  width: 352px;
+  padding: 3px 3px 3px 9px;
+  border: solid 1px rgb(193, 211, 201);
+}
+
+.form{ 
+}
+
+.appts{
+  margin-top: -10px;
+}
+
+.AppointmentRow{
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.612);
+  margin-bottom: 10px;
+  transition: 1s;
+  /* border: dotted red; */
+}
+
+.selected{
+  box-shadow: 3px 2px 6px;
+  
+}
+
+.datepickerItem{
+/* border: dotted 2px rgb(233, 16, 197); */
+/* background: rgb(205, 214, 203); */
+padding: 0px !important;
+position: relative;
+display: flex;
+align-items: center;
+}
+
+
+
+
+
+.addaptform{
+  /* box-shadow: 2px -3px 17px rgb(181, 185, 187); */
+  /* background: linear-gradient( 
+    180deg, rgb(215, 224, 226), rgb(255, 255, 255)); */
+  /* border: rgb(238, 146, 60) dotted 2px; */
+  /* padding: 0px 0px 10px; */
+  margin-top: 12px;
+  overflow: visible;
+  /* z-index: -1; */
+ 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.stripes{
+  position: absolute;
+  top: -20px;
+  left:-20px;
+  /* width: 400px; */
+  z-index: 0;
+  clip-path: polygon(0% 0%, 100% 0%,  100% 55%, 0% 55%);
+  opacity: .06;
+
+
+}
+
+.datetimeConItem{
+  text-align: center;
+  /* text-decoration: underline; */
+  
+  font-family: Montserrat;
+  font-size:2.3em;
+  color: rgb(193, 216, 218);
+  white-space: nowrap;
+  text-shadow: rgb(37, 42, 48)3px 3px 1px;
+  /* border: rgb(31, 139, 233) dotted 3px;
+   */
+  display: flex;
+  justify-content: flex-start;
+
+
+}
+
+.datetimeConItem > div{
+  /* border: rgb(40, 134, 59) dotted; */
+}
+
+
+.newApttimeItem{
+  /* border: rgb(209, 26, 96) dotted 1px; */
+  position: relative;
+  
+}
+
+.AafDatetimeItem{
+  padding-left: 3%; 
+  position: relative;
+  /* border: red dotted 1px */
+}
+
+.AafDatetimeItem .dateimeWrap{
+  /* border: blue solid; */
+  position:absolute;
+  left: 0px;
+  top: -6px;
+  z-index:22;
+  width: 120%;
+  /* height: 100px; */
+  /* border: blue solid; */
+  /* / */
+}
+
+.dateimeWrap{
+  position: relative;
+  left: -5px;
+}
+
+
+
+.graphic{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  pointer-events: none; 
+  position: absolute;
+  color:rgb(164, 199, 187);
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  opacity: 1;
+  pointer-events: none; 
+  /* border: red dotted; */
+}
+
+
+
+.plainbtn{
+  left: 0;
+  top: 0;
+  transform:scale(1);
+  height: 60px;
+  width: 60px;
+  transform-origin: center;
+  /* border:rgb(63, 219, 63) solid 1px !important;  */
+
+} 
+
+.plainbtn img{
+  border: white solid 1px !important;
+  width: 60px;
+}
+
+.scale{
+  
+  transform:scale(1.2);
+  border:rgb(33, 37, 33) solid 1px; 
+}
+
+/* .testptag{
+  border: red solid;
+} */
+
+div.graphic p{
+  position: absolute;
+  color: rgb(107, 70, 70);
+  font-size: .9em; 
+  white-space: nowrap;
+  background: rgb(233, 217, 217);
+  font-size: 1.5em;
+  border: rgb(189, 34, 34) solid; 
+  line-height: .9;
+  padding: 1px 8px 11px;
+  top: -94%;
+  left: 100%;
+  text-shadow: rgb(133, 102, 102) 2px 2px 2px;
+
+}
+
+div.graphic div{
+  position: absolute;
+  z-index: -1;
+  background: rgb(176, 190, 180);
+  height: 2px;
+  width: 47px;
+  
+}
+
+img{
+  padding: 0 !important;
+  margin: 0 !important;
+  border: solid 1px;
+}
+
+.graphic:hover{
+  color:#a4cdb0;
+  /* opacity: 0; */
+}
+
+.graphic:active{
+  color:rgb(101, 199, 158);
+}
+
+.graphic:focus{
+  opacity: 1;
+  
+ 
+}
+
+.mask{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 375px;
+  height: 100px;
+  background-color: rgb(228, 233, 238);
+}
+
+.addappttxtarea .addtxthelper{
+  line-height: 1em;
+  /* height: 200px; */
+  margin: 0 !important;
+  border-radius: 0;
+  
+  box-shadow: none !important;
+  /* padding: 5px; */
+  transition: .3s;
+  resize: none;
+  background-color: white !important;
+}
+
+.addappttxtarea::placeholder {
+  color: rgb(16, 18, 16);
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.addtxthelper::placeholder {
+  color: rgb(184, 64, 28);
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.addappttxtarea:active{
+  border-style: none solid;
+   border-color:  rgb(144, 185, 175);
+   border-width: 1px;
+   border-radius: 0;
+   background: white;
+ }
+
+.addappttxtarea:focus{
+ border-style: none solid;
+  border-color:  rgb(144, 185, 175);
+  border-width: 1px;
+  border-radius: 0;
+  background: white;
+}
+
+/* div.AafapptTxtItem textarea{
+  background: white;}  */
+
+
+
+.saveappt{
+  padding-top: 3px;
+  display: flex;
+  justify-content: flex-end; 
+  /* border: red solid; */
+}
+
+.txtField{
+ 
+  background: "rgb(232, 241, 250)"
+}
+
+.textupdate{
+  /* border: rgb(235, 121, 27) solid; */
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.MuiFilledInput-root{
+  background: white !important;
+}
+
+.testArea{
+  line-height: .07em;
+}
+
+
+.teststyle{
+  background :rgb(0, 225, 255);
+}
+
+
+
+
+.dayeventsItem{
+
+  padding: 40px 0px;
+  
+}
+
+.dayevents{
+  text-align: center;
+  
+}
+
+
+
+.dayeventsdate{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 8px;
+  color: rgb(48, 90, 36);
+  letter-spacing: 1px;
+  font-size: 2.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes popout {
+  from {transform:scale(.1)}
+  to {transform:scale(1)}
+}
+
+
+
+
+
+.rc-calendar{
+  height: 700px;
+  height:auto;
+
+}
+
+
+.rc-calendar-header{
+  /* display: none; */
+}
+
+.rc-calendar-panel{
+ 
+  height: 325px;
+  
+}
+
+
+.rc-calendar-last-month-cell{
+  color: rgb(127, 186, 225);
+}
+
+.cellstyle{
+  border: solid rgb(153, 182, 179) 1px;
+  font-size: 1.5em;
+  /* letter-spacing: 1px; */
+  text-align: center;
+  font-family: 'Montserrat', cursive;
+  padding:0;
+}
+
+.cellstyleflagged{
+  box-shadow: inset 0 0 6px #37cc64;
+}
+
+
+
+
+ul, li { /* reset the margin and padding */
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  padding: 2px;
+  font-size: 0;
+}
+
+li{
+  margin: 1px;
+  background:rgb(190, 207, 190);
+  display: block;
+  color: rgb(83, 83, 139);
+  font-size: 11px;
+  /* margin-bottom: -19px; */
+  padding: 0px 3px;
+}
+
+
+
+
+/* //////////////// USERSCOMP ETC. */
+.userCompContainer{
+  position: relative;
+  z-index: 1;
+  box-shadow: rgb(32, 37, 35) 0px 0px 21px;
+  padding: 20px 6px;
+  background: rgba(231, 241, 241, 0.9);
+}
+
+.or {
+  text-align: center;
+  padding: 40px 0px;
+  color:#829185;
+  text-shadow: #9db6a2 2px 2px 3px;
+}
+.or p{
+  margin: -10px 0;
+  font-size: 2.5em;
+}
+
+
+.signupItem, .signinItem{
+  
+  /* border: rgb(114, 139, 194) dotted;
+  height: 0; */
+}
+
+.signuptxtArea{
+  /* white-space: nowrap; */
+  /* position: absolute; */
+  /* border: #000000 dotted; */
+  text-align: center;
+  resize: none !important;
+  padding: 6px !important;
+  letter-spacing: 1px;
+  line-height: 1.1em;
+  border:rgb(189, 212, 193) solid 1px;
+
+
+}
+
+textarea {
+  position: relative;
+  font-family: 'Montserrat';
+  display: block;
+  border: 1px solid #dedede;
+  /* border-radius: 4px; */
+  padding: 0.75rem;
+  outline: none;
+  background: white;;
+  margin-bottom: 0.5rem;
+  font-size: 1.8em;
+  /* width: 100%;
+  max-width: 100%; */
+  line-height: 1;
+  overflow:hidden;
+}
+
+.cell{
+  /* border: black solid 1px; */
+  text-align: center;
+}
