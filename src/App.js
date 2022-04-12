@@ -16,49 +16,43 @@ import Appbground from './img/gunz.jpg'
 
 function App() {
   return (
-'APP'
-    
-    // <Router>
-    //   <Head/> 
 
-    //   <div className="app">
-    //     <img src={Appbground}/>
+    
+    <Router>
+      <Head/> 
+
+      <div className="app">
+        <img src={Appbground}/>
        
       
-    //     <Switch>
-    //       <Route
-    //         exact path="/test"
-    //         render={() => (
-    //           <React.Fragment>
-    //             <Test/>
-    //           </React.Fragment>
-    //         )}/>
+        <Switch>
+          <Route
+            exact path="/test"
+            render={() => (
+              <React.Fragment>
+                <Test/>
+              </React.Fragment>
+            )}/>
 
-    //       <Route
-    //         exact path="/cal"
-    //         render={() => (
-    //           <React.Fragment>
-    //             <CalendarComp/>  
-    //           </React.Fragment>
-    //         )}/>
+          <Route
+            exact path="/cal"
+            render={() => (
+              <React.Fragment>
+                <CalendarComp/>  
+              </React.Fragment>
+            )}/>
 
-    //       <Route
-    //         exact path="/textA"
-    //         render={() => (
-    //           <React.Fragment>
-    //             <EssayForm/>  
-    //           </React.Fragment>
-    //         )}/>
+         
        
-    //       <Route exact path="/" 
-    //         component={UsersComp} />
+          <Route exact path="/" 
+            component={UsersComp} />
        
-    //       <Redirect to="/" />
-    //     </Switch>
+          <Redirect to="/" />
+        </Switch>
         
-    //   </div>
+      </div>
 
-    // </Router>
+    </Router>
     
    
    
