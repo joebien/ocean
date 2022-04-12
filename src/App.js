@@ -42,7 +42,13 @@ function App() {
               </React.Fragment>
             )}/>
 
-         
+          <Route
+            exact path="/textA"
+            render={() => (
+              <React.Fragment>
+                <EssayForm/>  
+              </React.Fragment>
+            )}/>
        
           <Route exact path="/" 
             component={UsersComp} />
