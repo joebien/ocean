@@ -48,7 +48,7 @@ export const CalendarComp=(props, { history }) => {
   
   useEffect(() => {  
    
-    // dispatch(setUserName(location.state.userName))
+    dispatch(setUserName(location.state.userName))
     // dispatch(setUserName('testname'))
   }, [])
 
