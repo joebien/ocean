@@ -15,7 +15,7 @@ ReactDOM.render(
 
   <React.StrictMode>
   <Provider store={store}>
-    testing with no APP
+    testing with no APP 2
   </Provider>
 </React.StrictMode>
  
