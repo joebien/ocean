@@ -13,17 +13,17 @@ import { fetchUsers } from './features/users/usersSlice'
 
 ReactDOM.render(
 
-  <React.StrictMode>
-  <Provider store={store}>
-    testing with no APP 2
-  </Provider>
-</React.StrictMode>
+//   <React.StrictMode>
+//   <Provider store={store}>
+//     testing with no APP 2
+//   </Provider>
+// </React.StrictMode>
  
-  // <React.StrictMode>
-  //   <Provider store={store}>
-  //     <App/>
-  //   </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  </React.StrictMode>
  
   ,
   document.getElementById('root')
