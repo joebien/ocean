@@ -105,7 +105,7 @@ return (
       <Grid container   className='gridContainer'
         sx={{ justifycontent: 'center' }}
       >
-        <Grid>{userName}'s calendar</Grid>
+        <Grid style={{color:'white'}}>{userName}'s calendar</Grid>
    
         <Grid name='calItem' item xs={11} 
           ref={calComp} 

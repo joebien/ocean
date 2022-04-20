@@ -25,7 +25,8 @@ export const UsersComp = (props) => {
         else{setsigninmsg('not found')}    
     }
 
-    const handleNewUser =()=>{ console.log('newusername ',newusername);
+    const handleNewUser =()=>{ 
+        console.log('newusername ',newusername);
     
     
         const saveNewUser = async()=> { console.log('saveNewUser')
